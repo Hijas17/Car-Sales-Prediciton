@@ -46,12 +46,15 @@ def predict(details: CarDetails):
         # Convert input data to a DataFrame
         input_data = pd.DataFrame([details.dict()])
 
-        print("okkk   ", input_data)
+        print(input_data)
 
         # Encode categorical features using the label encoders
         for col, le in label_encoders.items():
+
+            print("okkk222   ", input_data)
             input_data[col] = le.transform(input_data[col])
 
+        print("okkk222   ", input_data)
         # Define the numerical columns
         numerical_cols = ['kilometers', 'year']
 
@@ -64,6 +67,8 @@ def predict(details: CarDetails):
 
         # Make a prediction
         prediction_normalized = model.predict(input_data_scaled)
+
+        print("HELLOOOOO",prediction_normalized)
 
         # Ensure prediction_normalized is a 2D array
         if prediction_normalized.ndim == 1:
