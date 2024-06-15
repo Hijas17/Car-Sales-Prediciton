@@ -3,9 +3,11 @@ from pydantic import BaseModel
 import joblib
 import numpy as np
 import pandas as pd
+from mangum import Mangum
 
 # Initialize the FastAPI app
 app = FastAPI()
+handler = Mangum(app)
 
 # Load the serialized model and scalers
 model = joblib.load('xgb_model.pkl')
