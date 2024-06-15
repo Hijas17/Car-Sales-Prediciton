@@ -18,21 +18,15 @@ class CarDetails(BaseModel):
     brand: str
     model: str
     trim: str
-    year: int
     kilometers: float
+    year: int
     regional_specs: str
-    doors: int
-    body_type: str
+    doors: str
     fuel_type: str
-    seating_capacity: int
+    seating_capacity: str
     transmission_type: str
-    engine_capacity_cc: str
-    horsepower: str
-    no_of_cylinders: int
-    exterior_color: str
-    interior_color: str
+    no_of_cylinders: str
     warranty: str
-    city: str
     seller_type: str
 
 # Endpoint for health check
@@ -45,17 +39,9 @@ def predict(details: CarDetails):
     try:
         # Convert input data to a DataFrame
         input_data = pd.DataFrame([details.dict()])
-
-        print(input_data)
-
         # Encode categorical features using the label encoders
         for col, le in label_encoders.items():
-
-            print("okkk222   ", input_data)
             input_data[col] = le.transform(input_data[col])
-
-        print("okkk222   ", input_data)
-        # Define the numerical columns
         numerical_cols = ['kilometers', 'year']
 
         # Scale numerical features
@@ -63,13 +49,9 @@ def predict(details: CarDetails):
 
         # Combine scaled numerical data and encoded categorical data
         input_data_scaled = input_data.values
-        print(input_data_scaled,"   HUH")
-
         # Make a prediction
         prediction_normalized = model.predict(input_data_scaled)
-
-        print("HELLOOOOO",prediction_normalized)
-
+        
         # Ensure prediction_normalized is a 2D array
         if prediction_normalized.ndim == 1:
             prediction_normalized = prediction_normalized.reshape(-1, 1)
