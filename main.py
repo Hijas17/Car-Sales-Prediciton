@@ -10,10 +10,10 @@ app = FastAPI()
 handler = Mangum(app)
 
 # Load the serialized model and scalers
-model = joblib.load('../xgb_model.pkl')
-scaler_X = joblib.load('../scaler_X.pkl')
-scaler_y = joblib.load('../scaler_y.pkl')
-label_encoders = joblib.load('../label_encoders.pkl')  # Dictionary of label encoders for categorical features
+model = joblib.load('xgb_model.pkl')
+scaler_X = joblib.load('scaler_X.pkl')
+scaler_y = joblib.load('scaler_y.pkl')
+label_encoders = joblib.load('label_encoders.pkl')  # Dictionary of label encoders for categorical features
 
 # Define the input data model
 class CarDetails(BaseModel):
