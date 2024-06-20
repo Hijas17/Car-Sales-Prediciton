@@ -39,54 +39,54 @@ const CarDetailsForm: React.FC = () => {
   };
 
   return (
-    <div className="max-w-md mx-auto p-4 bg-white rounded-lg shadow-md">
-      <h2 className="text-xl font-semibold mb-4">Car Valuation</h2>
-      <form onSubmit={handleSubmit} className="space-y-4">
-        <div className='flex flex-col'>
-          <label className="block text-sm font-medium text-gray-700">Make and Model</label>
+    <div className="h-full mx-40 p-4 bg-[#09213b9a] rounded-lg shadow-md">
+      <h2 className="text-xl lg:text-md xl:text-lg 2xl:text-xl text-white font-semibold mb-4">Car Valuation</h2>
+      <form onSubmit={handleSubmit} className="space-y-4 h-full w-full">
+        <div className='flex flex-col max-w-md h-auto'>
+          <label className="block text-sm lg:text-xs xl:text-sm font-medium text-white">Make and Model</label>
             <div className='flex gap-1'>
-          <input type="text" name="brand" value={carDetails.brand} onChange={handleChange} placeholder="Enter brand" className="mt-1 block w-full p-2 border border-gray-300 rounded-md" required />
-          <input type="text" name="model" value={carDetails.model} onChange={handleChange} placeholder="Enter model" className="mt-1 block w-full p-2 border border-gray-300 rounded-md" required />
+          <input type="text" name="brand" value={carDetails.brand} onChange={handleChange} placeholder="Enter brand" className="mt-1 block text-md lg:text-sm xl:text-md w-full p-2 border border-gray-300 rounded-md h-9 lg:h-7 xl:h-8 2xl:h-9" required />
+          <input type="text" name="model" value={carDetails.model} onChange={handleChange} placeholder="Enter model" className="mt-1 block text-md lg:text-sm xl:text-md w-full p-2 border border-gray-300 rounded-md h-9 lg:h-7 xl:h-8 2xl:h-9" required />
             </div>
         </div>
         <div>
-          <label className="block text-sm font-medium text-gray-700">Trim</label>
-          <input type="text" name="trim" value={carDetails.trim} onChange={handleChange} placeholder="Enter trim" className="mt-1 block w-full p-2 border border-gray-300 rounded-md" required />
+          <label className="block text-sm lg:text-xs xl:text-sm font-medium text-white">Trim</label>
+          <input type="text" name="trim" value={carDetails.trim} onChange={handleChange} placeholder="Enter trim" className="mt-1 block text-md lg:text-sm xl:text-md w-full p-2 border border-gray-300 rounded-md h-9 lg:h-7 xl:h-8 2xl:h-9" required />
         </div>
         <div className='flex flex-col'>
-          <label className="block text-sm font-medium text-gray-700">Year and Mileage</label>
+          <label className="block text-sm lg:text-xs xl:text-sm font-medium text-white">Year and Mileage</label>
             <div className='flex gap-1'>
-            <input type="number" name="year" value={carDetails.year} onChange={handleChange} placeholder="Enter year" className="mt-1 block w-full p-2 border border-gray-300 rounded-md" required />
-            <input type="number" name="kilometers" value={carDetails.kilometers} onChange={handleChange} placeholder="Enter mileage" className="mt-1 block w-full p-2 border border-gray-300 rounded-md" required />
+            <input type="number" name="year" value={carDetails.year} onChange={handleChange} placeholder="Enter year" className="mt-1 block text-md lg:text-sm xl:text-md w-full p-2 border border-gray-300 rounded-md h-9 lg:h-7 xl:h-8 2xl:h-9" required />
+            <input type="number" name="kilometers" value={carDetails.kilometers} onChange={handleChange} placeholder="Enter mileage" className="mt-1 block text-md lg:text-sm xl:text-md w-full p-2 border border-gray-300 rounded-md h-9 lg:h-7 xl:h-8 2xl:h-9" required />
             </div>
         </div>
         <div>
-          <label className="block text-sm font-medium text-gray-700">Specification</label>
-          <input type="text" name="regional spec" value={carDetails.regional_specs} onChange={handleChange} placeholder="Enter specification" className="mt-1 block w-full p-2 border border-gray-300 rounded-md" required />
+          <label className="block text-sm lg:text-xs xl:text-sm font-medium text-white">Specification</label>
+          <input type="text" name="regional spec" value={carDetails.regional_specs} onChange={handleChange} placeholder="Enter specification" className="mt-1 block text-md lg:text-sm xl:text-md w-full p-2 border border-gray-300 rounded-md h-9 lg:h-7 xl:h-8 2xl:h-9" required />
         </div>
         <div className='flex flex-col'>
-          <label className="block text-sm font-medium text-gray-700">Fuel and Transmission Type</label>
+          <label className="block text-sm lg:text-xs xl:text-sm font-medium text-white">Fuel and Transmission Type</label>
             <div className='flex gap-1'>
-          <input type="text" name="fuel type" value={carDetails.fuel_type} onChange={handleChange} placeholder="Enter Fuel Type" className="mt-1 block w-full p-2 border border-gray-300 rounded-md" required />
-          <input type="text" name="transmission type" value={carDetails.transmission_type} onChange={handleChange} placeholder="Enter Transmission Type" className="mt-1 block w-full p-2 border border-gray-300 rounded-md" required />
+          <input type="text" name="fuel type" value={carDetails.fuel_type} onChange={handleChange} placeholder="Enter Fuel Type" className="mt-1 block text-md lg:text-sm xl:text-md w-full p-2 border border-gray-300 rounded-md h-9 lg:h-7 xl:h-8 2xl:h-9" required />
+          <input type="text" name="transmission type" value={carDetails.transmission_type} onChange={handleChange} placeholder="Enter Transmission Type" className="mt-1 block text-md lg:text-sm xl:text-md w-full p-2 border border-gray-300 rounded-md h-9 lg:h-7 xl:h-8 2xl:h-9" required />
             </div>
         </div>
         <div>
-          <label className="block text-sm font-medium text-gray-700">Cylinders</label>
-          <input type="text" name="cylinders" value={carDetails.no_of_cylinders} onChange={handleChange} placeholder="Enter Cylinders" className="mt-1 block w-full p-2 border border-gray-300 rounded-md" required />
+          <label className="block text-sm lg:text-xs xl:text-sm font-medium text-white">Cylinders</label>
+          <input type="text" name="cylinders" value={carDetails.no_of_cylinders} onChange={handleChange} placeholder="Enter Cylinders" className="mt-1 block text-md lg:text-sm xl:text-md w-full p-2 border border-gray-300 rounded-md h-9 lg:h-7 xl:h-8 2xl:h-9" required />
         </div>
         <div className='flex flex-col'>
-          <label className="block text-sm font-medium text-gray-700">Doors and Seating Capacity</label>
+          <label className="block text-sm lg:text-xs xl:text-sm font-medium text-white">Doors and Seating Capacity</label>
             <div className='flex gap-1'>
-          <input type="text" name="doors" value={carDetails.doors} onChange={handleChange} placeholder="Number of Doors" className="mt-1 block w-full p-2 border border-gray-300 rounded-md" required />
-          <input type="text" name="seating capacity" value={carDetails.seating_capacity} onChange={handleChange} placeholder="Enter Seating Capacity" className="mt-1 block w-full p-2 border border-gray-300 rounded-md" required />
+          <input type="text" name="doors" value={carDetails.doors} onChange={handleChange} placeholder="Number of Doors" className="mt-1 block text-md lg:text-sm xl:text-md w-full p-2 border border-gray-300 rounded-md h-9 lg:h-7 xl:h-8 2xl:h-9" required />
+          <input type="text" name="seating capacity" value={carDetails.seating_capacity} onChange={handleChange} placeholder="Enter Seating Capacity" className="mt-1 block text-md lg:text-sm xl:text-md w-full p-2 border border-gray-300 rounded-md h-9 lg:h-7 xl:h-8 2xl:h-9" required />
             </div>
         </div>
         <div className='flex flex-col'>
-          <label className="block text-sm font-medium text-gray-700">Waranty and Seller type</label>
+          <label className="block text-sm lg:text-xs xl:text-sm font-medium text-white">Waranty and Seller type</label>
             <div className='flex gap-1'>
-          <input type="text" name="doors" value={carDetails.warranty} onChange={handleChange} placeholder="Warranty?" className="mt-1 block w-full p-2 border border-gray-300 rounded-md" required />
-          <input type="text" name="seating capacity" value={carDetails.seller_type} onChange={handleChange} placeholder="Enter Seller Type" className="mt-1 block w-full p-2 border border-gray-300 rounded-md" required />
+          <input type="text" name="doors" value={carDetails.warranty} onChange={handleChange} placeholder="Warranty?" className="mt-1 block text-md lg:text-sm xl:text-md w-full p-2 border border-gray-300 rounded-md h-9 lg:h-7 xl:h-8 2xl:h-9" required />
+          <input type="text" name="seating capacity" value={carDetails.seller_type} onChange={handleChange} placeholder="Enter Seller Type" className="mt-1 block text-md lg:text-sm xl:text-md w-full p-2 border border-gray-300 rounded-md h-9 lg:h-7 xl:h-8 2xl:h-9" required />
             </div>
         </div>
         <button type="submit" className="w-full bg-blue-600 text-white p-2 rounded-md">Value this car</button>
