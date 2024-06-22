@@ -1,6 +1,6 @@
 // src/App.tsx
 import React from "react";
-import CarDetailsForm from "./components/carDetailsForm";
+import CarDetailsForm from "./components/carDetailsForm/carDetailsForm";
 import { Header } from "./components/header";
 import VideoBackground from "./components/VideoBackground";
 
