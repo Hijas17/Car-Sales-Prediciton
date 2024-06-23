@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef, FormEvent } from 'react';
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
 import Data from './brand_model_dict.json'
+import classNames from 'classnames';
 
 const CarDetailsForm: React.FC = () => {
   type CarDetails = {
@@ -119,7 +120,7 @@ const CarDetailsForm: React.FC = () => {
 
     return (
       <DropdownMenu.Root>
-        <DropdownMenu.Trigger ref={triggerRef} className="mt-1 block text-md lg:text-sm xl:text-md w-full p-2 border border-gray-300 rounded-md h-9 lg:h-7 xl:h-8 2xl:h-9 bg-white text-left">{carDetails[name] || placeholder}</DropdownMenu.Trigger>
+        <DropdownMenu.Trigger ref={triggerRef} className={classNames("mt-1 block text-md lg:text-sm xl:text-md w-full p-2 text-[#FFFFFF] border border-gray-300 rounded-md h-9 lg:h-7 xl:h-8 2xl:h-9 bg-[#ffffff9f] text-left", !carDetails[name]?"italic":"")}>{carDetails[name] || placeholder}</DropdownMenu.Trigger>
         <DropdownMenu.Content style={{ width: triggerWidth }} className="bg-white border border-gray-300 rounded-md p-2 overflow-scroll h-fit max-h-[40vh]">
           {options.map(option => (
             <DropdownMenu.Item
@@ -136,11 +137,11 @@ const CarDetailsForm: React.FC = () => {
   };
 
   return (
-    <div className="h-full mx-40 p-4 bg-[#09213b9a] rounded-lg shadow-md">
+    <div className="h-full min-w-[30%] mx-40 p-4 bg-[#09213b9a] rounded-lg shadow-md">
       <h2 className="text-xl lg:text-md xl:text-lg 2xl:text-xl text-white font-semibold mb-4">Car Valuation</h2>
       <form onSubmit={handleSubmit} className="space-y-4 h-full w-full">
-        <div className='flex flex-col max-w-md h-auto'>
-          <label className="block text-sm lg:text-xs xl:text-sm font-medium text-white">Make and Model</label>
+      <div className='flex flex-col'>
+          <label className="block text-sm lg:text-xs xl:text-sm font-medium text-white">Brand and Model</label>
           <div className='flex gap-1'>
             <Dropdown name="brand" placeholder="Enter brand" options={Object.keys(carData)} />
             <Dropdown name="model" placeholder="Enter model" options={Models} />
