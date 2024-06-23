@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef, FormEvent } from 'react';
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
 import Data from './brand_model_dict.json'
 import classNames from 'classnames';
+import { cylinders, doors, fueltype, seating_capacity, sellertype, spec, transmissiontype, warranty, years } from './formOptions';
 
 const CarDetailsForm: React.FC = () => {
   type CarDetails = {
@@ -154,37 +155,37 @@ const CarDetailsForm: React.FC = () => {
         <div className='flex flex-col'>
           <label className="block text-sm lg:text-xs xl:text-sm font-medium text-white">Year and Mileage</label>
           <div className='flex gap-1'>
-            <Dropdown name="year" placeholder="Enter year" options={['2020', '2021', '2022']} />
-            <Dropdown name="kilometers" placeholder="Enter mileage" options={['10000', '20000', '30000']} />
+            <Dropdown name="year" placeholder="Enter year" options={years} />
+            <input placeholder="Enter mileage" className='mt-1 block text-md lg:text-sm xl:text-md w-full p-2 text-[#FFFFFF] border border-gray-300 rounded-md h-9 lg:h-7 xl:h-8 2xl:h-9 bg-[#ffffff9f] text-left placeholder:text-[#FFFFFF] placeholder:italic' />
           </div>
         </div>
         <div>
           <label className="block text-sm lg:text-xs xl:text-sm font-medium text-white">Specification</label>
-          <Dropdown name="regional_specs" placeholder="Enter specification" options={['GCC', 'US', 'EU']} />
+          <Dropdown name="regional_specs" placeholder="Enter specification" options={spec} />
         </div>
         <div className='flex flex-col'>
           <label className="block text-sm lg:text-xs xl:text-sm font-medium text-white">Fuel and Transmission Type</label>
           <div className='flex gap-1'>
-            <Dropdown name="fuel_type" placeholder="Enter Fuel Type" options={['Petrol', 'Diesel', 'Electric']} />
-            <Dropdown name="transmission_type" placeholder="Enter Transmission Type" options={['Automatic', 'Manual']} />
+            <Dropdown name="fuel_type" placeholder="Enter Fuel Type" options={fueltype} />
+            <Dropdown name="transmission_type" placeholder="Enter Transmission Type" options={transmissiontype} />
           </div>
         </div>
         <div>
           <label className="block text-sm lg:text-xs xl:text-sm font-medium text-white">Cylinders</label>
-          <Dropdown name="no_of_cylinders" placeholder="Enter Cylinders" options={['4', '6', '8']} />
+          <Dropdown name="no_of_cylinders" placeholder="Enter Cylinders" options={cylinders} />
         </div>
         <div className='flex flex-col'>
           <label className="block text-sm lg:text-xs xl:text-sm font-medium text-white">Doors and Seating Capacity</label>
           <div className='flex gap-1'>
-            <Dropdown name="doors" placeholder="Number of Doors" options={['2', '4']} />
-            <Dropdown name="seating_capacity" placeholder="Enter Seating Capacity" options={['4', '5', '7']} />
+            <Dropdown name="doors" placeholder="Number of Doors" options={doors} />
+            <Dropdown name="seating_capacity" placeholder="Enter Seating Capacity" options={seating_capacity} />
           </div>
         </div>
         <div className='flex flex-col'>
           <label className="block text-sm lg:text-xs xl:text-sm font-medium text-white">Warranty and Seller Type</label>
           <div className='flex gap-1'>
-            <Dropdown name="warranty" placeholder="Warranty?" options={['Yes', 'No']} />
-            <Dropdown name="seller_type" placeholder="Enter Seller Type" options={['Dealer', 'Individual']} />
+            <Dropdown name="warranty" placeholder="Warranty?" options={warranty} />
+            <Dropdown name="seller_type" placeholder="Enter Seller Type" options={sellertype} />
           </div>
         </div>
         <button type="submit" className="w-full bg-blue-600 text-white p-2 rounded-md">Value this car</button>
