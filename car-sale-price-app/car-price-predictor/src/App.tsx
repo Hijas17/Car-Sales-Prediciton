@@ -13,8 +13,8 @@ const App: React.FC = () => {
       <div className="w-full min-h-screen flex flex-col">
         <Header />
         <div className="flex flex-col absolute justify-center h-full top-56 left-20">
-          <h1 className="text-white text-[45px] xl:text-[60px] w-[40%] font-extrabold top-56 left-20">
-          Discover the True Value of Your Dream Car..
+          <h1 className="text-white text-[45px] italic xl:text-[60px] w-[40%] font-extrabold top-56 left-20">
+          Discover the True Value of Your Dream Car
           </h1>
           <span className="text-white text-md xl:text-md w-[40%] italic  h-full left-20 top-14">
             {description}
