@@ -3,17 +3,17 @@ import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
 import Data from './brand_model_dict.json'
 import classNames from 'classnames';
 import { cylinders, doors, fueltype, seating_capacity, sellertype, spec, transmissiontype, warranty, years } from './formOptions';
+import { predict } from '../../api/predict';
 
 const CarDetailsForm: React.FC = () => {
   type CarDetails = {
     brand: string;
     model: string;
     trim: string;
-    year: string;
-    kilometers: string;
+    year: number;
+    kilometers: number;
     regional_specs: string;
     doors: string;
-    body_type: string;
     fuel_type: string;
     seating_capacity: string;
     transmission_type: string;
@@ -26,11 +26,10 @@ const CarDetailsForm: React.FC = () => {
     brand: '',
     model: '',
     trim: '',
-    year: '',
-    kilometers: '',
+    year: 2015,
+    kilometers: 0,
     regional_specs: '',
     doors: '',
-    body_type: '',
     fuel_type: '',
     seating_capacity: '',
     transmission_type: '',
@@ -53,23 +52,21 @@ const CarDetailsForm: React.FC = () => {
   const [Models, setModels] = useState<string[]>([]);
   const [Trims, setTrims] = useState<string[]>([]);
 
+  function toTitleCase(str: string): string {
+    return str
+      .split(/(\s|-)/)  // Split by space or hyphen, but keep the delimiters
+      .map(word => {
+        if (word.match(/(\s|-)/)) {
+          // Return delimiters as is
+          return word;
+        } else {
+          // Capitalize the first character and lowercase the rest
+          return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+        }
+      })
+      .join('');  // Join the array back into a string
+  }
   
-
-  // const handleBrandChange = (brand: string) => {
-  //   setCarDetails({ ...carDetails, brand, model: '', trim: '' });
-  //   console.log("models", Object.keys(carData[brand]));
-  //   setModels(Object.keys(carData[brand] || {}));
-  //   setTrims([]);
-  // };
-
-  // const handleModelChange = (model: string) => {
-  //   setCarDetails(prevState => ({ ...prevState, model, trim: '' }));
-  //   setTrims(carData[carDetails.brand]?.[model] || []);
-  // };
-
-  // const handleTrimChange = (trim: string) => {
-  //   setCarDetails(prevState => ({ ...prevState, trim }));
-  // };
 
   const handleChange = (name: string, value: string) => {
     if (name==='brand'){
@@ -77,36 +74,41 @@ const CarDetailsForm: React.FC = () => {
       setTrims([]);
       setCarDetails({
         ...carDetails,
-        brand:value,
+        brand:toTitleCase(value),
         model: '',
         trim:''
       });
     }
     else if (name==="model"){
-      console.log("trims",carData[carDetails.brand]?.[value] )
       setTrims(carData[carDetails.brand]?.[value] || []);
       setCarDetails({
         ...carDetails,
-        model:value,
+        model:toTitleCase(value),
         trim:''
+      });
+    }
+    else if (name === "year"){
+      setCarDetails({
+        ...carDetails,
+        year:+value,
       });
     }
     else{
       setCarDetails({
         ...carDetails,
-        [name]: value
+        [name]: toTitleCase(value)
       });
     }
   };
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    // try {
-    //   const result = await predictPrice(carDetails);
-    //   setPredictedPrice(result.predicted_price);
-    // } catch (error) {
-    //   console.error('Error submitting form:', error);
-    // }
+    try {
+      const result = await predict(carDetails);
+      setPredictedPrice(result.predicted_price);
+    } catch (error) {
+      console.error('Error submitting form:', error);
+    }
   };
 
   const Dropdown = ({ name, placeholder, options }: { name: keyof CarDetails, placeholder: string, options: string[] }) => {
