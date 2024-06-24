@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, FormEvent } from 'react';
+import React, { useState, useEffect, useRef, FormEvent, ChangeEvent } from 'react';
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
 import Data from './brand_model_dict.json'
 import classNames from 'classnames';
@@ -101,6 +101,13 @@ const CarDetailsForm: React.FC = () => {
     }
   };
 
+  // const handleKmChange = (value:any) =>{
+  //   setCarDetails({
+  //     ...carDetails,
+  //     kilometers:value
+  //   });
+  // }
+
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     try {
@@ -110,6 +117,15 @@ const CarDetailsForm: React.FC = () => {
       console.error('Error submitting form:', error);
     }
   };
+
+  const handleKilometersChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setCarDetails({
+      ...carDetails,
+      kilometers: +e.target.value,
+    });
+  };
+
+
 
   const Dropdown = ({ name, placeholder, options }: { name: keyof CarDetails, placeholder: string, options: string[] }) => {
     const [triggerWidth, setTriggerWidth] = useState<number>(0);
@@ -158,7 +174,7 @@ const CarDetailsForm: React.FC = () => {
           <label className="block text-sm lg:text-xs xl:text-sm font-medium text-white">Year and Mileage</label>
           <div className='flex gap-1'>
             <Dropdown name="year" placeholder="Enter year" options={years} />
-            <input placeholder="Enter mileage" className='mt-1 block text-md lg:text-sm xl:text-md w-full p-2 text-[#FFFFFF] border border-gray-300 rounded-md h-9 lg:h-7 xl:h-8 2xl:h-9 bg-[#ffffff9f] text-left placeholder:text-[#FFFFFF] placeholder:italic' />
+            <input onChange={handleKilometersChange} placeholder="Enter mileage" className='mt-1 block text-md lg:text-sm xl:text-md w-full p-2 text-[#FFFFFF] border border-gray-300 rounded-md h-9 lg:h-7 xl:h-8 2xl:h-9 bg-[#ffffff9f] text-left placeholder:text-[#FFFFFF] placeholder:italic' />
           </div>
         </div>
         <div>
