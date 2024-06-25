@@ -101,13 +101,6 @@ const CarDetailsForm: React.FC = () => {
     }
   };
 
-  // const handleKmChange = (value:any) =>{
-  //   setCarDetails({
-  //     ...carDetails,
-  //     kilometers:value
-  //   });
-  // }
-
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     try {
@@ -139,7 +132,7 @@ const CarDetailsForm: React.FC = () => {
 
     return (
       <DropdownMenu.Root>
-        <DropdownMenu.Trigger ref={triggerRef} className={classNames("mt-1 block text-md lg:text-sm xl:text-md w-full p-2 text-[#FFFFFF] border border-gray-300 rounded-md h-9 lg:h-7 xl:h-8 2xl:h-9 bg-[#ffffff9f] text-left", !carDetails[name]?"italic":"")}>{carDetails[name] || placeholder}</DropdownMenu.Trigger>
+        <DropdownMenu.Trigger ref={triggerRef} className={classNames("mt-1 block text-md lg:text-sm xl:text-md w-full p-2 text-[#FFFFFF] overflow-hidden border border-gray-300 rounded-md h-9 lg:h-7 xl:h-8 2xl:h-9 bg-[#ffffff9f] text-left", !carDetails[name]?"italic":"")}>{carDetails[name] || placeholder}</DropdownMenu.Trigger>
         <DropdownMenu.Content style={{ width: triggerWidth }} className="bg-white border border-gray-300 rounded-md p-2 overflow-scroll h-fit max-h-[40vh]">
           {options.map(option => (
             <DropdownMenu.Item
@@ -209,8 +202,8 @@ const CarDetailsForm: React.FC = () => {
         <button type="submit" className="w-full bg-blue-600 text-white p-2 rounded-md">Value this car</button>
       </form>
       {predictedPrice !== null && (
-        <div className="mt-4 p-4 bg-green-100 text-green-800">
-          Predicted Price: {predictedPrice}
+        <div className="mt-4 p-4 bg-[#dec4f794] text-[#ffffff] rounded-sm">
+          Predicted Price: {predictedPrice.toFixed(0) + " AED"}
         </div>
       )}
     </div>

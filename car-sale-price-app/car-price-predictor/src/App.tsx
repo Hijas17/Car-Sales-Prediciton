@@ -12,15 +12,15 @@ const App: React.FC = () => {
       <VideoBackground />
       <div className="w-full min-h-screen flex flex-col">
         <Header />
-        <div className="flex flex-col absolute justify-center h-full top-56 left-20">
-          <h1 className="text-white text-[45px] italic xl:text-[60px] w-[40%] font-extrabold top-56 left-20">
+        <div className="flex flex-col absolute justify-center top-56 left-20">
+          <h1 className="text-[#a7b9e0] text-[40px] md:leading-tight 2xl:leading-normal  italic xl:text-[60px] w-[40%] font-extrabold top-56 left-20">
           Discover the True Value of Your Dream Car
           </h1>
-          <span className="text-white text-md xl:text-md w-[40%] italic  h-full left-20 top-14">
+          <span className="text-[#d5e1fc] xl:text-lg sm:text-sm w-[40%] italic  h-full left-20 top-14">
             {description}
           </span>
         </div>
-        <div className="flex-grow w-full flex items-center justify-end">
+        <div className="flex-grow w-full flex items-center justify-end z-30">
           <CarDetailsForm />
         </div>
       </div>
