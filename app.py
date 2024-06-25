@@ -10,6 +10,7 @@ app = FastAPI()
 origins = [
     "http://localhost:3001",
     "http://localhost:3000",
+    "https://car-sales-prediciton.vercel.app/"
     # Add other origins as needed
 ]
 
