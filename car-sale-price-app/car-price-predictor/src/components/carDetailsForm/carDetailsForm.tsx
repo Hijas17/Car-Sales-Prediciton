@@ -26,8 +26,8 @@ const CarDetailsForm: React.FC = () => {
     brand: '',
     model: '',
     trim: '',
-    year: 2015,
-    kilometers: 0,
+    year: NaN,
+    kilometers: NaN,
     regional_specs: '',
     doors: '',
     fuel_type: '',
@@ -91,6 +91,12 @@ const CarDetailsForm: React.FC = () => {
       setCarDetails({
         ...carDetails,
         year:+value,
+      });
+    }
+    else if (name === "seller_type"){
+      setCarDetails({
+        ...carDetails,
+        seller_type:value,
       });
     }
     else{
